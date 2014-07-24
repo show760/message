@@ -1,20 +1,11 @@
 <?php
 
-include "dbconn.php";
-include "controller.php";
+class view
+{
+    public function AllMessage($show, $s = "allmessage.php")
+    {
+        include "allmessage.php";
+    }
 
-$var = controller::showAllMessage();
-
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>view</title>
-</head>
-<body>
-<h3>
-<?php var_dump($var); ?>
-</h3>
-</body>
-</html>
+}
 

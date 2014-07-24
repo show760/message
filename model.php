@@ -2,7 +2,7 @@
 
 class model
 {
-    public $message;    
+    // public $message;    
     public function __construct()
     {
         mysql_connect("localhost", "root", "1234")
@@ -16,9 +16,9 @@ class model
         $sql="SELECT * FROM `message`";
         $result=mysql_query($sql);
         $total_records = mysql_num_rows($result);
-        $allmessage = array($result, $total_records);
-        //var_dump($allmessage);
-        return $allmessage;
+        $message = array($result, $total_records);
+        //var_dump($message);
+        return $message;
 
     }
     public function addMessage($name, $text)
@@ -29,6 +29,3 @@ class model
     }
 
 }
-
-// $mo = new model;
-// $mo->getAllMessage();

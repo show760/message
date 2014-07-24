@@ -1,5 +1,6 @@
 <?php
 include "model.php";
+include "view.php";
 
 class controller
 {   
@@ -7,20 +8,21 @@ class controller
     {
     	
         $mo = new model;
-        $allmessage = $mo->getAllMessage();
-        //var_dump($allmessage);
+        $message = $mo->getAllMessage();
         $var = array ();
-        for ($i = 0; $i < $allmessage[1]; $i++) {
-            $row = mysql_fetch_assoc($allmessage[0]);
+        for ($i = 0; $i < $message[1]; $i++) {
+            $row = mysql_fetch_assoc($message[0]);
             $var[]=$row;
         }
-        //var_dump($var);
-       return $var;
+        $show =  array(count($var), $var);
+        //var_dump($show);
+        return view::AllMessage($show, "allmessage.php");
+       // return $show;
     }
 
    public function addMessage(){}
 
 }	
-/*
+
 $co = new controller;
-$co -> showAllMessage();*/
+$co -> showAllMessage();
