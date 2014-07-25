@@ -1,11 +1,11 @@
 <?php
-include "view.php";
+include "../view/view.php";
 class add_message_controller
 {
     public function conAddMessageList()
     {   
         $add = array('name', 'text');
-        return view::addMessageList($add, "addmessagelist.php");
+        return view::addMessageList($add, "../template/addmessagelist.php");
     }
 }
 

@@ -1,6 +1,6 @@
 <?php
-include "view.php";
-include "model.php";
+include "../view/view.php";
+include "../model/model.php";
 
 class modupd_message_controller
 {
@@ -12,7 +12,7 @@ class modupd_message_controller
         //var_dump($message);
         $upd = array('name', 'text', 'id');
         //var_dump($upd);
-        return view::modupdMessage($message, $upd, "modupdmessage.php");
+        return view::modupdMessage($message, $upd, "../template/modupdmessage.php");
 	}
 }
 

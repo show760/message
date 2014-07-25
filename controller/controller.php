@@ -1,6 +1,6 @@
 <?php
-include "model.php";
-include "view.php";
+include "../model/model.php";
+include "../view/view.php";
 
 class controller
 {
@@ -14,7 +14,7 @@ class controller
             $var[]=$row;
         }
         $show =  array(count($var), $var);
-        return view::allMessage($show, 'allmessage.php');
+        return view::allMessage($show, '../template/allmessage.php');
     }
 }
 

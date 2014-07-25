@@ -1,6 +1,6 @@
 <?php
-include "view.php";
-include "model.php";
+include "../view/view.php";
+include "../model/model.php";
 
 class upd_message_controller
 {
@@ -16,7 +16,7 @@ class upd_message_controller
         $show =  array(count($var), $var);
         $upd = 'id';
         //var_dump($show);
-        return view::updMessageList($upd, $show, "updmessagelist.php");
+        return view::updMessageList($upd, $show, "../template/updmessagelist.php");
 	}
 }
 

@@ -5,7 +5,7 @@
 </head>
 <body>
     <table align='center' width="500" bgcolor="#E38EFF" >
-        <form action="doaddmessagecontroller.php" method="POST" >
+        <form action="../controller/doaddmessagecontroller.php" method="POST" >
         <tr>
             <td align="center">
             姓名：<input type='text' name='<?php echo $add['0']; ?>' >
@@ -29,7 +29,7 @@
         </form>
         <tr>
             <td align="center">
-                 <a href="controller.php">回首頁</a>
+                 <a href="../controller/controller.php">回首頁</a>
             </td>
         </tr>
     </table>

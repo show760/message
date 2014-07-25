@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>template</title>
+	<title>delete message</title>
 </head>
 <body>
 <?php 
@@ -21,13 +21,10 @@ for ($i = 0; $i < $show[0]; $i++) {
         <td>
             <table align='center' bgcolor="<?php echo $color ?>" >
                 <tr>
-                    <td align='left' width="333" >
+                    <td align='left' width="500" >
                         留言編號：<?php echo $show[1][$i]['message_Id']; ?>	
                     </td>
-                    <td align='left' width="333">
-                        姓名：<?php echo $show[1][$i]['message_Name']; ?>
-                    </td>
-                    <td align='left' width="333">
+                    <td align='left' width="500">
                         內容：<?php echo $show[1][$i]['message_Text']; ?>
                     </td>
                 </tr>
@@ -48,10 +45,10 @@ for ($i = 0; $i < $show[0]; $i++) {
     <tr>
         <td align="center">
             <table align='center' width="500" bgcolor="#E38EFF" >
-                <form action="moduptmessagecontroller.php" method="POST" >
+                <form action="../controller/dodelmessagecontroller.php" method="POST" >
                 <tr>
                     <td align="center">
-                        輸入欲修改之留言編號：<input type='text' name='<?php echo $upd; ?>' >
+                        輸入欲刪除之留言編號：<input type='text' name='<?php echo $del; ?>' >
                     </td>
                 </tr>
                 <tr>
@@ -65,7 +62,7 @@ for ($i = 0; $i < $show[0]; $i++) {
     </tr>
     <tr>
         <td align="center">
-             <a href="controller.php">回首頁</a>
+             <a href="../controller/controller.php">回首頁</a>
         </td>    
     </tr>
 </table>  

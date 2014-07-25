@@ -1,5 +1,5 @@
  <?php
- include "model.php";
+ include "../model/model.php";
 
 class do_upd_message_controller
 {

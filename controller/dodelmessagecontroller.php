@@ -1,5 +1,5 @@
  <?php
- include "model.php";
+ include "../model/model.php";
 
 class do_del_message_controller
 {

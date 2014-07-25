@@ -1,6 +1,6 @@
 <?php
-include "view.php";
-include "model.php";
+include "../view/view.php";
+include "../model/model.php";
 
 class del_message_controller
 {
@@ -15,7 +15,7 @@ class del_message_controller
         }
         $show =  array(count($var), $var);
         $del = 'id';
-        return view::delMessageList($del, $show, "delmessagelist.php");
+        return view::delMessageList($del, $show, "../template/delmessagelist.php");
 	}
 }
 

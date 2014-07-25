@@ -51,9 +51,9 @@ for ($i = 0; $i < $show[0]; $i++) {
 ?>
     <tr>
         <td align="center">
-            <a href="addmessagecontroller.php">新增留言</a>
-            <a href="delmessagecontroller.php">刪除留言</a>
-            <a href="updmessagecontroller.php">修改留言</a>
+            <a href="../controller/addmessagecontroller.php">新增留言</a>
+            <a href="../controller/delmessagecontroller.php">刪除留言</a>
+            <a href="../controller/updmessagecontroller.php">修改留言</a>
         </td>
     </tr>
 </table>  
