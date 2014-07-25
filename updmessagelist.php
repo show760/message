@@ -25,14 +25,10 @@ for ($i = 0; $i < $show[0]; $i++) {
                         留言編號：<?php echo $show[1][$i]['message_Id']; ?>	
                     </td>
                     <td align='left' width="333">
-                        留言者：<?php echo $show[1][$i]['message_Name']; ?>
+                        姓名：<?php echo $show[1][$i]['message_Name']; ?>
                     </td>
-                    <td align='right' width="333">
-                        [日期：<?php echo $show[1][$i]['message_Time']; ?>]
-                    </td>
-                <tr>   
-                    <td colspan="3" align="left">
-                        <?php echo $show[1][$i]['message_Text']; ?>
+                    <td align='left' width="333">
+                        內容：<?php echo $show[1][$i]['message_Text']; ?>
                     </td>
                 </tr>
                 <tr>
@@ -51,10 +47,26 @@ for ($i = 0; $i < $show[0]; $i++) {
 ?>
     <tr>
         <td align="center">
-            <a href="addmessagecontroller.php">新增留言</a>
-            <a href="delmessagecontroller.php">刪除留言</a>
-            <a href="updmessagecontroller.php">修改留言</a>
+            <table align='center' width="500" bgcolor="#E38EFF" >
+                <form action="moduptmessagecontroller.php" method="POST" >
+                <tr>
+                    <td align="center">
+                        輸入欲修改之留言編號：<input type='text' name='<?php echo $upd; ?>' >
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input type='submit' value='送出'>
+                    </td>
+                </tr>
+                </form>
+            </table>
         </td>
+    </tr>
+    <tr>
+        <td align="center">
+             <a href="controller.php">回首頁</a>
+        </td>    
     </tr>
 </table>  
 </body>

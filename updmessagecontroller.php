@@ -1,10 +1,10 @@
 <?php
-include "model.php";
 include "view.php";
+include "model.php";
 
-class controller
+class upd_message_controller
 {
-    public function showAllMessage()
+    public function updMessageController()
     {
         $mo = new model;
         $message = $mo->getAllMessage();
@@ -14,10 +14,11 @@ class controller
             $var[]=$row;
         }
         $show =  array(count($var), $var);
-        return view::allMessage($show, 'allmessage.php');
-    }
+        $upd = 'id';
+        //var_dump($show);
+        return view::updMessageList($upd, $show, "updmessagelist.php");
+	}
 }
 
-$co = new controller;
-$co -> showAllMessage();
-
+$co = new upd_message_controller;
+$co -> updMessageController();

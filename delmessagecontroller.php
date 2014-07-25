@@ -1,10 +1,10 @@
 <?php
-include "model.php";
 include "view.php";
+include "model.php";
 
-class controller
+class del_message_controller
 {
-    public function showAllMessage()
+    public function delmessagecontroller()
     {
         $mo = new model;
         $message = $mo->getAllMessage();
@@ -14,10 +14,10 @@ class controller
             $var[]=$row;
         }
         $show =  array(count($var), $var);
-        return view::allMessage($show, 'allmessage.php');
-    }
+        $del = 'id';
+        return view::delMessageList($del, $show, "delmessagelist.php");
+	}
 }
 
-$co = new controller;
-$co -> showAllMessage();
-
+$co = new del_message_controller;
+$co -> delmessagecontroller();
