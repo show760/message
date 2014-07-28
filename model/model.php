@@ -63,6 +63,42 @@ class model
         mysql_query($sql);
         echo alert("修改留言成功").overPage("controller.php");
     }
+    public function getAllReMessage()
+    {
+        $sql = "SELECT * FROM `remessage` order by `message_Id`";
+        $result = mysql_query($sql);
+        $total_records = mysql_num_rows($result);
+        $remessage = array($result, $total_records);
+        //var_dump($remessage);
+        return $remessage;
+    }
+    public function modAddReMessage($id, $name, $text)
+    {
+        $sql = "INSERT INTO `remessage`(`message_Id`,`remessage_Name`,`remessage_Text`)
+        VALUES ('{$id}','{$name}','{$text}')";
+        mysql_query($sql);
+        echo set::alert("新增回覆成功").set::overPage("controller.php");
+    }
+    public function modDelReMessage($id)
+    {
+        $sql = "DELETE FROM `remessage` WHERE `remessage_Id` = '{$id}'";
+        mysql_query($sql);
+        echo set::alert("刪除回覆成功").set::overPage("controller.php");
+    }
+    public function getUpdReMessage($id)
+    {
+        $sql = "SELECT * FROM `remessage` WHERE `remessage_Id` = '{$id}'";
+        $result = mysql_query($sql);
+        $message = mysql_fetch_assoc($result);
+        return $message;
+    }
+    public function UpdReMessage($id, $name, $text)
+    {
+        $sql = "UPDATE `remessage` SET `remessage_Name`='{$name}',`remessage_Text`='{$text}' 
+        WHERE `remessage_Id`= '{$id}'";
+        mysql_query($sql);
+        echo set::alert("修改回覆成功").set::overPage("controller.php");
+    }
 }
 
 // $me = new model;

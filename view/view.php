@@ -22,6 +22,14 @@ class view
     {
         include "{$s}";
     }
+    public function reMessageList($id,$addre, $s)
+    {
+        include "{$s}";
+    }
+     public function modReMessageList($message, $upd, $s)
+    {
+        include "{$s}";
+    }
 }
 
 
