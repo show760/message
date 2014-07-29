@@ -1,0 +1,10 @@
+{
+	"autoload": {
+        "classmap": ["controller/", "model/", "view/"]
+    },
+    "require": {
+        "twig/twig": "1.*",
+        "corneltek/pux": "~1.5",
+        "zerkalica/phpcs": "dev-master"
+    }
+}

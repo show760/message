@@ -1,5 +1,9 @@
 <?php
-include "../model/model.php";
+namespace controller;
+
+require('../vendor/autoload.php');
+
+use model\Model;
 
 class DoUpdReMessageController
 {
@@ -14,3 +18,4 @@ class DoUpdReMessageController
 }
 
 $co = new DoUpdReMessageController;
+$co -> doUpdReMessageController();

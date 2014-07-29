@@ -1,5 +1,9 @@
 <?php
-include "../model/model.php";
+namespace controller;
+
+require('../vendor/autoload.php');
+
+use model\Model;
 
 class DoDelRemessageController
 {
@@ -10,4 +14,5 @@ class DoDelRemessageController
         $mo->modDelReMessage($id);
     }
 }
-$co = new doDelRemessageController;
+$co = new DoDelRemessageController;
+$co -> doDelRemessageController();

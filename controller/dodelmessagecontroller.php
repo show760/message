@@ -1,5 +1,9 @@
 <?php
-include "../model/model.php";
+namespace controller;
+
+require('../vendor/autoload.php');
+
+use model\Model;
 
 class DoDelMessageController
 {
@@ -12,3 +16,4 @@ class DoDelMessageController
 }
 
 $co = new DoDelMessageController;
+$co -> doDelMessageController();

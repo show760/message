@@ -1,6 +1,10 @@
 <?php
-include "../view/view.php";
-include "../model/model.php";
+namespace controller;
+
+require('../vendor/autoload.php');
+
+use model\Model;
+use view\View;
 
 class ModUpdMessageController
 {
@@ -15,3 +19,4 @@ class ModUpdMessageController
 }
 
 $co = new ModUpdMessageController;
+$co -> modUpdMessageController();

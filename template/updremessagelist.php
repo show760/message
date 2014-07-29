@@ -16,19 +16,22 @@
             </tr>
             <tr>
                 <td align="center" colspan="2">
-                    回覆姓名：<input type='text' name='<?php echo $upd['0']; ?>' value ='<?php echo $message['remessage_Name']; ?>' >
+                    回覆姓名：<input type='text' name='<?php echo $upd['0']; ?>' 
+                    value ='<?php echo $message['remessage_Name']; ?>' >
                 </td>
             </tr>
             <tr>
                 <td align="center" colspan="2">
                     回覆內容：<br />
-                     <textarea cols="30" rows="3" name='<?php echo $upd['1']; ?>'><?php echo $message['remessage_Text']; ?>
+                     <textarea cols="30" rows="3" name='<?php echo $upd['1']; ?>'>
+                     <?php echo $message['remessage_Text']; ?>
                      </textarea>
                 </td>
             </tr>
             <tr>
                 <td align="center" colspan="2">
-                    <input type='hidden' name='<?php echo $upd['2'];?>' value ='<?php echo $message['remessage_Id']; ?>'> 
+                    <input type='hidden' name='<?php echo $upd['2'];?>' 
+                    value ='<?php echo $message['remessage_Id']; ?>'> 
                     <input type='submit' value='送出'>
                 </td>
             </tr>

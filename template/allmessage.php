@@ -4,10 +4,6 @@
     <title>template</title>
 </head>
 <body bgcolor="#333333">
-<?php 
-//var_dump($show); 
-//echo $show[1][0]['message_Time'];
-?>
 <table align='center' width="1000" bgcolor="#333333" >
 <?php
 for ($i = 0; $i < $show[0][0]; $i++) {
@@ -42,8 +38,8 @@ for ($i = 0; $i < $show[0][0]; $i++) {
             </table>
             <table width="800" align="center" bgcolor="#ffffff">
             <?php
-            for ($j = 0; $j < $show[0][1]; $j++) {
-                if ($show[2][$j]['message_Id'] == $show[1][$i]['message_Id']) {
+    for ($j = 0; $j < $show[0][1]; $j++) {
+        if ($show[2][$j]['message_Id'] == $show[1][$i]['message_Id']) {
             ?>
                     <tr>
                         <td align="left" width="400">
@@ -74,8 +70,8 @@ for ($i = 0; $i < $show[0][0]; $i++) {
                         </td>
                     </tr>   
             <?php
-                }
-            }
+        }
+    }
             ?>
             </table>
         </td>

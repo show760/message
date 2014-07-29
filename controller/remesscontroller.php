@@ -1,5 +1,9 @@
 <?php
-include "../view/view.php";
+namespace controller;
+
+require('../vendor/autoload.php');
+
+use view\View;
 
 class ReMessageController
 {
@@ -11,3 +15,4 @@ class ReMessageController
     }
 }
 $co = new ReMessageController;
+$co -> reMessageController();

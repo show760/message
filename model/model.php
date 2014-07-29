@@ -1,4 +1,5 @@
 <?php
+namespace model;
 
 class Model
 {
@@ -39,7 +40,7 @@ CONTENT;
         $sql = "INSERT INTO `message`(`message_Name`,`message_Text`)
         VALUES ('{$name}','{$text}')";
         mysql_query($sql);
-        echo Model::alert("新增留言成功").Model::erPage("controller.php");
+        echo Model::alert("新增留言成功").Model::overPage("controller.php");
     }
     public function modDelMessage($id)
     {

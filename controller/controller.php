@@ -1,6 +1,10 @@
 <?php
-include "../model/model.php";
-include "../view/view.php";
+namespace controller;
+
+require('../vendor/autoload.php');
+
+use model\Model;
+use view\View;
 
 class Controller
 {
@@ -8,6 +12,7 @@ class Controller
     {
         $mo = new Model;
         $message = $mo->getAllMessage();
+        //var_dump($message);
         $var = array ();
         for ($i = 0; $i < $message[1]; $i++) {
             $row = mysql_fetch_assoc($message[0]);
@@ -27,11 +32,5 @@ class Controller
         return View::allMessage($show, '../template/allmessage.php');
     }
 }
-
-$co = new controller;
-$co -> showAllMessage();
-
-/*
-var_dump($_SERVER['REQUEST_URI']);
-var_dump($_SERVER['PHP_SELF']);
-*/
+ // $co = new Controller;
+ // $co -> showAllMessage();

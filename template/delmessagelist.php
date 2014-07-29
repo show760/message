@@ -4,10 +4,6 @@
 	<title>delete message</title>
 </head>
 <body bgcolor="333333">
-<?php 
-//var_dump($show); 
-//echo $show[1][0]['message_Time'];
-?>
 <table align='center' width="1000" bgcolor="#ffffff" >
 <?php 
 for ($i = 0; $i < $show[0]; $i++) {

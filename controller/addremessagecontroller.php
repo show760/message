@@ -1,5 +1,9 @@
 <?php
-include "../model/model.php";
+namespace controller;
+
+require('../vendor/autoload.php');
+
+use model\Model;
 
 class AddRemessageController
 {
@@ -14,3 +18,4 @@ class AddRemessageController
 }
 
 $co = new AddRemessageController;
+$co -> addRemessageController();
