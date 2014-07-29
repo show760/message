@@ -3,8 +3,8 @@
 <head>
 	<title>add remessage</title>
 </head>
-<body>
-    <table align='center' width="500" bgcolor="#E38EFF" >
+<body bgcolor="#333333">
+    <table align='center' width="500" bgcolor="#ffffff" >
         <form action="../controller/addremessagecontroller.php" method="POST" >
         <tr>
             <td align="center">

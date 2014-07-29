@@ -1,16 +1,13 @@
- <?php
- include "../model/model.php";
+<?php
+include "../model/model.php";
 
-class do_del_remessage_controller
+class DoDelRemessageController
 {
-    public function conDelReMessage()
-    {   
+    public function doDelRemessageController()
+    {
         $id = $_POST['id'];
-        //echo $id;
-        $mo = new model;
+        $mo = new Model;
         $mo->modDelReMessage($id);
     }
 }
-
-$co = new do_del_remessage_controller;
-$co -> conDelReMessage();
+$co = new doDelRemessageController;

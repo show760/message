@@ -2,19 +2,16 @@
 include "../view/view.php";
 include "../model/model.php";
 
-class modupd_message_controller
+class ModUpdMessageController
 {
-    public function modupdMessageController()
+    public function modUpdMessageController()
     {
         $upd = $_POST['id'];
-        $mo = new model;
-        $message = $mo->getmodUpdMessage($upd);
-        //var_dump($message);
+        $mo = new Model;
+        $message = $mo->getModUpdMessage($upd);
         $upd = array('name', 'text', 'id');
-        //var_dump($upd);
-        return view::modupdMessage($message, $upd, "../template/modupdmessage.php");
-	}
+        return View::modupdMessage($message, $upd, "../template/modupdmessage.php");
+    }
 }
 
-$co = new modupd_message_controller;
-$co -> modupdMessageController();
+$co = new ModUpdMessageController;

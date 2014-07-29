@@ -1,15 +1,13 @@
 <?php
 include "../view/view.php";
 
-class remesscontroller
+class ReMessageController
 {
-    public function showReMessList()
+    public function reMessageController()
     {
         $id = $_POST['id'];
         $addre =array ('name', 'text');
-        //var_dump($addre);
-        return view::reMessageList($id, $addre, '../template/remessagelist.php');
+        return View::reMessageList($id, $addre, '../template/remessagelist.php');
     }
 }
-$co = new remesscontroller;
-$co -> showReMessList();
+$co = new ReMessageController;

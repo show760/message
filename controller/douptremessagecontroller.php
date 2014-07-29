@@ -1,17 +1,16 @@
- <?php
- include "../model/model.php";
+<?php
+include "../model/model.php";
 
-class do_upd_remessage_controller
+class DoUpdReMessageController
 {
-    public function conUpdReMessage()
-    {   
+    public function doUpdReMessageController()
+    {
         $id = $_POST['id'];
         $name = $_POST['name'];
         $text = $_POST['text'];
-        $mo = new model;
-        $mo -> UpdReMessage($id, $name, $text);
+        $mo = new Model;
+        $mo -> updReMessage($id, $name, $text);
     }
 }
 
-$co = new do_upd_remessage_controller;
-$co -> conUpdReMessage();
+$co = new DoUpdReMessageController;

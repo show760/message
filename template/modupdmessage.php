@@ -3,8 +3,8 @@
 <head>
 	<title>template</title>
 </head>
-<body>
-    <table align='center' width="500" bgcolor="#E38EFF" >
+<body bgcolor="#333333">
+    <table align='center' width="500" bgcolor="#ffffff" >
         <form action="../controller/douptmessagecontroller.php" method="POST" >
             <tr>
                 <td align="center">
@@ -31,6 +31,8 @@
                     <input type='hidden' name='<?php echo $upd['2'];?>' value ='<?php echo $message['message_Id']; ?>'> 
                     <input type='submit' value='送出'>
                 </td>
+            <tr>
+            </tr>
                 <td align="center" colspan="2">
                     <a href="../controller/controller.php">回首頁</a>
                 </td>

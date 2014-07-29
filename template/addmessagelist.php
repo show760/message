@@ -3,8 +3,8 @@
 <head>
 	<title>add message</title>
 </head>
-<body>
-    <table align='center' width="500" bgcolor="#E38EFF" >
+<body bgcolor="#333333">
+    <table align='center' width="500" bgcolor="#FFFFFF" >
         <form action="../controller/doaddmessagecontroller.php" method="POST" >
         <tr>
             <td align="center">

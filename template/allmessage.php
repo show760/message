@@ -3,23 +3,18 @@
 <head>
     <title>template</title>
 </head>
-<body>
+<body bgcolor="#333333">
 <?php 
 //var_dump($show); 
 //echo $show[1][0]['message_Time'];
 ?>
-<table align='center' width="1000" bgcolor="#E38EFF" >
+<table align='center' width="1000" bgcolor="#333333" >
 <?php
 for ($i = 0; $i < $show[0][0]; $i++) {
-    if (($i+1)%2==1) {
-        $color = '#FFFF77';
-    } else {
-        $color = '#99FF33';
-    }
     ?>
     <tr>
         <td>
-            <table align='center' bgcolor="<?php echo $color ?>" >
+            <table align='center' bgcolor="#ffffff" >
                 <tr>
                     <td align='left' width="333" >
                         留言編號：<?php echo $show[1][$i]['message_Id']; ?>  
@@ -45,7 +40,7 @@ for ($i = 0; $i < $show[0][0]; $i++) {
                     
                 </tr>
             </table>
-            <table width="800" align="center" bgcolor="#F0BBFF">
+            <table width="800" align="center" bgcolor="#ffffff">
             <?php
             for ($j = 0; $j < $show[0][1]; $j++) {
                 if ($show[2][$j]['message_Id'] == $show[1][$i]['message_Id']) {
@@ -65,11 +60,11 @@ for ($i = 0; $i < $show[0][0]; $i++) {
                         <td align="right" width="400">
                             <form action="../controller/delremesscontroller.php" method="POST" >
                                 <input type="hidden" name="id" value="<?php echo $show[2][$j]['remessage_Id']; ?>">
-                                <input type='submit' value='刪除留言'>
+                                <input type='submit' value='刪除回覆'>
                             </form>
                             <form action="../controller/modremesslistcontroller.php" method="POST" >
                                 <input type="hidden" name="id" value="<?php echo $show[2][$j]['remessage_Id']; ?>">
-                                <input type='submit' value='修改留言'>
+                                <input type='submit' value='修改回覆'>
                             </form>
                         </td>
                     </tr>
@@ -96,9 +91,9 @@ for ($i = 0; $i < $show[0][0]; $i++) {
 ?>
     <tr>
         <td align="center">
-            <a href="../controller/addmessagecontroller.php">新增留言</a>
-            <a href="../controller/delmessagecontroller.php">刪除留言</a>
-            <a href="../controller/updmessagecontroller.php">修改留言</a>
+            <a href="../controller/addmessagecontroller.php" style="color:white;">新增留言</a>
+            <a href="../controller/delmessagecontroller.php" style="color:white;">刪除留言</a>
+            <a href="../controller/updmessagecontroller.php"style="color:white;">修改留言</a>
         </td>
     </tr>
 </table>  

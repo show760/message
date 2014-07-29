@@ -1,16 +1,14 @@
- <?php
- include "../model/model.php";
+<?php
+include "../model/model.php";
 
-class do_del_message_controller
+class DoDelMessageController
 {
-    public function conDelMessage()
-    {   
+    public function doDelMessageController()
+    {
         $id = $_POST['id'];
-        //echo $name;
-        $mo = new model;
+        $mo = new Model;
         $mo->modDelMessage($id);
     }
 }
 
-$co = new do_del_message_controller;
-$co -> conDelMessage();
+$co = new DoDelMessageController;

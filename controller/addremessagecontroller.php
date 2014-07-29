@@ -1,18 +1,16 @@
- <?php
- include "../model/model.php";
+<?php
+include "../model/model.php";
 
-class add_remessage_controller
+class AddRemessageController
 {
-    public function conAddReMessage()
-    {   
+    public function addRemessageController()
+    {
         $name = $_POST['name'];
         $text = $_POST['text'];
         $id = $_POST['id'];
-        //echo $name;
-        $mo = new model;
+        $mo = new Model;
         $mo->modAddReMessage($id, $name, $text);
     }
 }
 
-$co = new add_remessage_controller;
-$co -> conAddReMessage();
+$co = new AddRemessageController;

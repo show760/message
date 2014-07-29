@@ -2,11 +2,11 @@
 include "../model/model.php";
 include "../view/view.php";
 
-class controller
+class Controller
 {
     public function showAllMessage()
     {
-        $mo = new model;
+        $mo = new Model;
         $message = $mo->getAllMessage();
         $var = array ();
         for ($i = 0; $i < $message[1]; $i++) {
@@ -24,12 +24,13 @@ class controller
         $con = array (count($var),count($var2));
         $show =  array($con, $var, $var2);
         //var_dump($show[2][0]['message_Id']);
-        return view::allMessage($show, '../template/allmessage.php');
+        return View::allMessage($show, '../template/allmessage.php');
     }
 }
 
 $co = new controller;
 $co -> showAllMessage();
+
 /*
 var_dump($_SERVER['REQUEST_URI']);
 var_dump($_SERVER['PHP_SELF']);

@@ -1,13 +1,13 @@
 <?php
 include "../view/view.php";
-class add_message_controller
+
+class AddMessageController
 {
-    public function conAddMessageList()
-    {   
+    public function addMessageController()
+    {
         $add = array('name', 'text');
-        return view::addMessageList($add, "../template/addmessagelist.php");
+        return View::addMessageList($add, "../template/addmessagelist.php");
     }
 }
 
-$co = new add_message_controller;
-$co -> conAddMessageList();
+$co = new AddMessageController;

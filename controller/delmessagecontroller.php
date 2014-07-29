@@ -2,11 +2,11 @@
 include "../view/view.php";
 include "../model/model.php";
 
-class del_message_controller
+class DelMessageController
 {
-    public function delmessagecontroller()
+    public function delMessageController()
     {
-        $mo = new model;
+        $mo = new Model;
         $message = $mo->getAllMessage();
         $var = array ();
         for ($i = 0; $i < $message[1]; $i++) {
@@ -15,9 +15,9 @@ class del_message_controller
         }
         $show =  array(count($var), $var);
         $del = 'id';
-        return view::delMessageList($del, $show, "../template/delmessagelist.php");
-	}
+        return View::delMessageList($del, $show, "../template/delmessagelist.php");
+    }
 }
 
-$co = new del_message_controller;
-$co -> delmessagecontroller();
+$co = new DelMessageController;
+//$co -> delMessageController();

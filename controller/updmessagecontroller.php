@@ -2,11 +2,11 @@
 include "../view/view.php";
 include "../model/model.php";
 
-class upd_message_controller
+class UpdMessageController
 {
     public function updMessageController()
     {
-        $mo = new model;
+        $mo = new Model;
         $message = $mo->getAllMessage();
         $var = array ();
         for ($i = 0; $i < $message[1]; $i++) {
@@ -15,10 +15,8 @@ class upd_message_controller
         }
         $show =  array(count($var), $var);
         $upd = 'id';
-        //var_dump($show);
-        return view::updMessageList($upd, $show, "../template/updmessagelist.php");
-	}
+        return View::updMessageList($upd, $show, "../template/updmessagelist.php");
+    }
 }
 
-$co = new upd_message_controller;
-$co -> updMessageController();
+$co = new UpdMessageController;

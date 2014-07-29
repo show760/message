@@ -1,6 +1,6 @@
 <?php
 
-class view
+class View
 {
     public function allMessage($show, $s)
     {
@@ -22,14 +22,12 @@ class view
     {
         include "{$s}";
     }
-    public function reMessageList($id,$addre, $s)
+    public function reMessageList($id, $addre, $s)
     {
         include "{$s}";
     }
-     public function modReMessageList($message, $upd, $s)
+    public function modReMessageList($message, $upd, $s)
     {
         include "{$s}";
     }
 }
-
-

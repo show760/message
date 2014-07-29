@@ -3,23 +3,18 @@
 <head>
 	<title>template</title>
 </head>
-<body>
+<body bgcolor="#333333">
 <?php 
 //var_dump($show); 
 //echo $show[1][0]['message_Time'];
 ?>
-<table align='center' width="1000" bgcolor="#E38EFF" >
+<table align='center' width="1000" bgcolor="#ffffff" >
 <?php 
 for ($i = 0; $i < $show[0]; $i++) {
-    if (($i+1)%2==1) {
-        $color = '#FFFF77';
-    } else {
-        $color = '#FF6699';
-    }
     ?>
     <tr>
         <td>
-            <table align='center' bgcolor="<?php echo $color ?>" >
+            <table align='center' bgcolor="#ffffff" >
                 <tr>
                     <td align='left' width="333" >
                         留言編號：<?php echo $show[1][$i]['message_Id']; ?>	
@@ -47,7 +42,7 @@ for ($i = 0; $i < $show[0]; $i++) {
 ?>
     <tr>
         <td align="center">
-            <table align='center' width="500" bgcolor="#E38EFF" >
+            <table align='center' width="500" bgcolor="#ffffff" >
                 <form action="../controller/moduptmessagecontroller.php" method="POST" >
                 <tr>
                     <td align="center">

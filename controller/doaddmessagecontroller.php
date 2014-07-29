@@ -1,17 +1,15 @@
- <?php
- include "../model/model.php";
+<?php
+include "../model/model.php";
 
-class do_add_message_controller
+class DoAddMessageController
 {
-    public function conAddMessage()
-    {   
+    public function doAddMessageController()
+    {
         $name = $_POST['name'];
         $text = $_POST['text'];
-        //echo $name;
-        $mo = new model;
+        $mo = new Model;
         $mo->modAddMessage($name, $text);
     }
 }
 
-$co = new do_add_message_controller;
-$co -> conAddMessage();
+$co = new DoAddMessageController;
