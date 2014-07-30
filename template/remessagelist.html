@@ -8,7 +8,7 @@
         <form action="../controller/addremessagecontroller.php" method="POST" >
         <tr>
             <td align="center">
-            回覆姓名：<input type='text' name='<?php echo $addre['0']; ?>' >
+            回覆姓名：<input type='text' name='{{name}}' >
             </td>
         </tr>
         <tr>
@@ -18,12 +18,12 @@
         </tr>
         <tr>
             <td align="center">
-            <textarea cols="30" rows="3" name='<?php echo $addre['1']; ?>'></textarea>
+            <textarea cols="30" rows="3" name='{{text}}'></textarea>
             </td>
         </tr>
         <tr>
             <td align="center" >
-            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input type="hidden" name="{{id}}" value="{{id_value}}">
             <input type='submit' value='送出'>
             </td>
         </tr>

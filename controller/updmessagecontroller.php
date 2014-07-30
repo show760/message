@@ -4,12 +4,13 @@ namespace controller;
 require('../vendor/autoload.php');
 
 use model\Model;
-use view\View;
 
 class UpdMessageController
 {
     public function updMessageController()
     {
+        $loader = new \Twig_Loader_Filesystem('../template');
+        $twig = new \Twig_Environment($loader);
         $mo = new Model;
         $message = $mo->getAllMessage();
         $var = array ();
@@ -17,9 +18,8 @@ class UpdMessageController
             $row = mysql_fetch_assoc($message[0]);
             $var[]=$row;
         }
-        $show =  array(count($var), $var);
-        $upd = 'id';
-        return View::updMessageList($upd, $show, "../template/updmessagelist.php");
+        $show =  array( 'message' => $var, 'id' => 'id');
+        echo $twig->render('updmessagelist.html', $show);
     }
 }
 

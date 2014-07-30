@@ -8,7 +8,7 @@
         <form action="../controller/doaddmessagecontroller.php" method="POST" >
         <tr>
             <td align="center">
-            姓名：<input type='text' name='<?php echo $add['0']; ?>' >
+            姓名：<input type='text' name='{{ name }}' >
             </td>
         </tr>
         <tr>
@@ -18,7 +18,7 @@
         </tr>
         <tr>
             <td align="center">
-            <textarea cols="30" rows="3" name='<?php echo $add['1']; ?>'></textarea>
+            <textarea cols="30" rows="3" name='{{ text }}'></textarea>
             </td>
         </tr>
         <tr>

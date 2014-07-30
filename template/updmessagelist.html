@@ -5,21 +5,19 @@
 </head>
 <body bgcolor="#333333">
 <table align='center' width="1000" bgcolor="#ffffff" >
-<?php 
-for ($i = 0; $i < $show[0]; $i++) {
-    ?>
+{% for show in message %}
     <tr>
         <td>
             <table align='center' bgcolor="#ffffff" >
                 <tr>
                     <td align='left' width="333" >
-                        留言編號：<?php echo $show[1][$i]['message_Id']; ?>	
+                        留言編號：{{show.message_Id}}	
                     </td>
                     <td align='left' width="333">
-                        姓名：<?php echo $show[1][$i]['message_Name']; ?>
+                        姓名：{{show.message_Name}}
                     </td>
                     <td align='left' width="333">
-                        內容：<?php echo $show[1][$i]['message_Text']; ?>
+                        內容：{{show.message_Text}}
                     </td>
                 </tr>
                 <tr>
@@ -32,17 +30,14 @@ for ($i = 0; $i < $show[0]; $i++) {
             <br />
         </td>
     </tr>
-    <?php 
-}
-
-?>
+{% endfor %}
     <tr>
         <td align="center">
             <table align='center' width="500" bgcolor="#ffffff" >
                 <form action="../controller/moduptmessagecontroller.php" method="POST" >
                 <tr>
                     <td align="center">
-                        輸入欲修改之留言編號：<input type='text' name='<?php echo $upd; ?>' >
+                        輸入欲修改之留言編號：<input type='text' name='{{id}}' >
                     </td>
                 </tr>
                 <tr>

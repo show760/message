@@ -4,17 +4,18 @@ namespace controller;
 require('../vendor/autoload.php');
 
 use model\Model;
-use view\View;
 
 class ModUpdMessageController
 {
     public function modUpdMessageController()
     {
-        $upd = $_POST['id'];
+        $loader = new \Twig_Loader_Filesystem('../template');
+        $twig = new \Twig_Environment($loader);
+        $id = $_POST['id'];
         $mo = new Model;
-        $message = $mo->getModUpdMessage($upd);
-        $upd = array('name', 'text', 'id');
-        return View::modupdMessage($message, $upd, "../template/modupdmessage.php");
+        $message = $mo->getModUpdMessage($id);
+        $show = array( 'message' => $message, 'name' => 'name', 'text' => 'text','id' => 'id');
+        echo $twig->render('modupdmessage.html', $show);
     }
 }
 

@@ -5,18 +5,16 @@
 </head>
 <body bgcolor="333333">
 <table align='center' width="1000" bgcolor="#ffffff" >
-<?php 
-for ($i = 0; $i < $show[0]; $i++) {
-    ?>
+{% for mess in message %}
     <tr>
         <td>
             <table align='center' bgcolor="ffffff" >
                 <tr>
                     <td align='left' width="500" >
-                        留言編號：<?php echo $show[1][$i]['message_Id']; ?>	
+                        留言編號：{{ mess.message_Id }}	
                     </td>
                     <td align='left' width="500">
-                        內容：<?php echo $show[1][$i]['message_Text']; ?>
+                        內容：{{ mess.message_Text }}
                     </td>
                 </tr>
                 <tr>
@@ -29,17 +27,14 @@ for ($i = 0; $i < $show[0]; $i++) {
             <br />
         </td>
     </tr>
-    <?php 
-}
-
-?>
+{% endfor %}
     <tr>
         <td align="center">
             <table align='center' width="500" bgcolor="#ffffff" >
                 <form action="../controller/dodelmessagecontroller.php" method="POST" >
                 <tr>
                     <td align="center">
-                        輸入欲刪除之留言編號：<input type='text' name='<?php echo $del; ?>' >
+                        輸入欲刪除之留言編號：<input type='text' name='{{ del }}' >
                     </td>
                 </tr>
                 <tr>

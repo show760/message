@@ -4,12 +4,13 @@ namespace controller;
 require('../vendor/autoload.php');
 
 use model\Model;
-use view\View;
 
 class DelMessageController
 {
     public function delMessageController()
     {
+        $loader = new \Twig_Loader_Filesystem('../template');
+        $twig = new \Twig_Environment($loader);
         $mo = new Model;
         $message = $mo->getAllMessage();
         $var = array ();
@@ -17,9 +18,8 @@ class DelMessageController
             $row = mysql_fetch_assoc($message[0]);
             $var[]=$row;
         }
-        $show =  array(count($var), $var);
-        $del = 'id';
-        return View::delMessageList($del, $show, "../template/delmessagelist.php");
+        $show =  array('message' => $var,'del' => 'id');
+        echo $twig->render('delmessagelist.html', $show);
     }
 }
 

@@ -4,17 +4,18 @@ namespace controller;
 require('../vendor/autoload.php');
 
 use model\Model;
-use view\View;
 
 class ModReMessageListController
 {
     public function modReMessageListController()
     {
+        $loader = new \Twig_Loader_Filesystem('../template');
+        $twig = new \Twig_Environment($loader);
         $id = $_POST['id'];
         $mo = new Model;
         $message = $mo->getUpdReMessage($id);
-        $upd = array('name', 'text' ,'id');
-        return View::modReMessageList($message, $upd, "../template/updremessagelist.php");
+        $show = array( 'message' => $message, 'name' => 'name', 'text' => 'text','id' => 'id');
+        echo $twig->render('updremessagelist.html', $show);
     }
 }
 

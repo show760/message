@@ -3,14 +3,14 @@ namespace controller;
 
 require('../vendor/autoload.php');
 
-use view\View;
-
 class AddMessageController
 {
     public function addMessageController()
     {
-        $add = array('name', 'text');
-        return View::addMessageList($add, "../template/addmessagelist.php");
+        $loader = new \Twig_Loader_Filesystem('../template');
+        $twig = new \Twig_Environment($loader);
+        $add = array( 'name' => 'name', 'text' => 'text');
+        echo $twig->render('addmessagelist.html', $add);
     }
 }
 

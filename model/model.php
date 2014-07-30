@@ -38,7 +38,7 @@ CONTENT;
     public function modAddMessage($name, $text)
     {
         $sql = "INSERT INTO `message`(`message_Name`,`message_Text`)
-        VALUES ('{$name}','{$text}')";
+            VALUES ('{$name}','{$text}')";
         mysql_query($sql);
         echo Model::alert("新增留言成功").Model::overPage("controller.php");
     }
@@ -48,9 +48,9 @@ CONTENT;
         mysql_query($sql);
         echo Model::alert("刪除留言成功").Model::overPage("delmessagecontroller.php");
     }
-    public function getModUpdMessage($upd)
+    public function getModUpdMessage($id)
     {
-        $sql = "SELECT * FROM `message` WHERE `message_Id` = '{$upd}'";
+        $sql = "SELECT * FROM `message` WHERE `message_Id` = '{$id}'";
         $result = mysql_query($sql);
         $message = mysql_fetch_assoc($result);
         return $message;
@@ -58,13 +58,15 @@ CONTENT;
     public function updMessage($id, $name, $text)
     {
         $sql = "UPDATE `message` SET `message_Name`='{$name}',`message_Text`='{$text}' 
-        WHERE `message_Id`= '{$id}'";
+            WHERE `message_Id`= '{$id}'";
         mysql_query($sql);
         echo Model::alert("修改留言成功").Model::overPage("controller.php");
     }
     public function getAllReMessage()
     {
-        $sql = "SELECT * FROM `remessage` order by `message_Id`";
+        //$sql = "SELECT * FROM `remessage` order by `message_Id`";
+        $sql = "SELECT `remessage_Id`,`message_Id` AS M_ID ,`remessage_Time`,`remessage_Name`,`remessage_Text` 
+            FROM `remessage`";
         $result = mysql_query($sql);
         $total_records = mysql_num_rows($result);
         $remessage = array($result, $total_records);
@@ -74,7 +76,7 @@ CONTENT;
     public function modAddReMessage($id, $name, $text)
     {
         $sql = "INSERT INTO `remessage`(`message_Id`,`remessage_Name`,`remessage_Text`)
-        VALUES ('{$id}','{$name}','{$text}')";
+            VALUES ('{$id}','{$name}','{$text}')";
         mysql_query($sql);
         echo Model::alert("新增回覆成功").Model::overPage("controller.php");
     }
@@ -94,7 +96,7 @@ CONTENT;
     public function updReMessage($id, $name, $text)
     {
         $sql = "UPDATE `remessage` SET `remessage_Name`='{$name}',`remessage_Text`='{$text}' 
-        WHERE `remessage_Id`= '{$id}'";
+            WHERE `remessage_Id`= '{$id}'";
         mysql_query($sql);
         echo Model::alert("修改回覆成功").Model::overPage("controller.php");
     }
