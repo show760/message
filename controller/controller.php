@@ -1,7 +1,6 @@
 <?php
 namespace controller;
 
-require('vendor/autoload.php');
 use model\Model;
 
 class Controller
