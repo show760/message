@@ -6,19 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AddMessageController' => $baseDir . '/controller/addmessagecontroller.php',
-    'AddRemessageController' => $baseDir . '/controller/addremessagecontroller.php',
-    'DelMessageController' => $baseDir . '/controller/delmessagecontroller.php',
-    'DoAddMessageController' => $baseDir . '/controller/doaddmessagecontroller.php',
-    'DoDelMessageController' => $baseDir . '/controller/dodelmessagecontroller.php',
-    'DoDelRemessageController' => $baseDir . '/controller/delremesscontroller.php',
-    'DoUpdMessageController' => $baseDir . '/controller/douptmessagecontroller.php',
-    'DoUpdReMessageController' => $baseDir . '/controller/douptremessagecontroller.php',
-    'ModReMessageListController' => $baseDir . '/controller/modremesslistcontroller.php',
-    'ModUpdMessageController' => $baseDir . '/controller/moduptmessagecontroller.php',
-    'ReMessageController' => $baseDir . '/controller/remesscontroller.php',
-    'UpdMessageController' => $baseDir . '/controller/updmessagecontroller.php',
     'controller\\Controller' => $baseDir . '/controller/controller.php',
+    'controller\\ReMessageController' => $baseDir . '/controller/remesscontroller.php',
     'model\\Model' => $baseDir . '/model/model.php',
-    'view\\View' => $baseDir . '/view/view.php',
 );

@@ -24,7 +24,7 @@
                         {{mess.message_Text}}
                     </td>
                     <td align="right">
-                    <form action="../controller/remesscontroller.php" method="POST" >
+                    <form action="/remessage/add" method="POST" >
                     <input type="hidden" name="id" value="{{mess.message_Id}}">
                     <input type='submit' value='回覆留言'>
                     </form>
@@ -47,11 +47,11 @@
                             {{remess.remessage_Text}}
                         </td>
                         <td align="right" width="400">
-                            <form action="../controller/delremesscontroller.php" method="POST" >
+                            <form action="/remessage/dodel" method="POST" >
                                 <input type="hidden" name="id" value="{{remess.remessage_Id}}">
                                 <input type='submit' value='刪除回覆'>
                             </form>
-                            <form action="../controller/modremesslistcontroller.php" method="POST" >
+                            <form action="/remessage/mod" method="POST" >
                                 <input type="hidden" name="id" value="{{remess.remessage_Id}}">
                                 <input type='submit' value='修改回覆'>
                             </form>
@@ -75,9 +75,9 @@
 {% endfor %}
     <tr>
         <td align="center">
-            <a href="../controller/addmessagecontroller.php" style="color:white;">新增留言</a>
-            <a href="../controller/delmessagecontroller.php" style="color:white;">刪除留言</a>
-            <a href="../controller/updmessagecontroller.php"style="color:white;">修改留言</a>
+            <a href="/message/add" style="color:white;">新增留言</a>
+            <a href="/message/del" style="color:white;">刪除留言</a>
+            <a href="/message/mod" style="color:white;">修改留言</a>
         </td>
     </tr>
 </table>  

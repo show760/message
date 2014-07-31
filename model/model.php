@@ -40,13 +40,13 @@ CONTENT;
         $sql = "INSERT INTO `message`(`message_Name`,`message_Text`)
             VALUES ('{$name}','{$text}')";
         mysql_query($sql);
-        echo Model::alert("新增留言成功").Model::overPage("controller.php");
+        echo Model::alert("新增留言成功").Model::overPage("/");
     }
     public function modDelMessage($id)
     {
         $sql = "DELETE FROM `message` WHERE `message_Id` = '{$id}'";
         mysql_query($sql);
-        echo Model::alert("刪除留言成功").Model::overPage("delmessagecontroller.php");
+        echo Model::alert("刪除留言成功").Model::overPage("/message/del");
     }
     public function getModUpdMessage($id)
     {
@@ -60,7 +60,7 @@ CONTENT;
         $sql = "UPDATE `message` SET `message_Name`='{$name}',`message_Text`='{$text}' 
             WHERE `message_Id`= '{$id}'";
         mysql_query($sql);
-        echo Model::alert("修改留言成功").Model::overPage("controller.php");
+        echo Model::alert("修改留言成功").Model::overPage("/");
     }
     public function getAllReMessage()
     {
@@ -78,13 +78,13 @@ CONTENT;
         $sql = "INSERT INTO `remessage`(`message_Id`,`remessage_Name`,`remessage_Text`)
             VALUES ('{$id}','{$name}','{$text}')";
         mysql_query($sql);
-        echo Model::alert("新增回覆成功").Model::overPage("controller.php");
+        echo Model::alert("新增回覆成功").Model::overPage("/");
     }
     public function modDelReMessage($id)
     {
         $sql = "DELETE FROM `remessage` WHERE `remessage_Id` = '{$id}'";
         mysql_query($sql);
-        echo Model::alert("刪除回覆成功").Model::overPage("controller.php");
+        echo Model::alert("刪除回覆成功").Model::overPage("/");
     }
     public function getUpdReMessage($id)
     {
@@ -98,6 +98,6 @@ CONTENT;
         $sql = "UPDATE `remessage` SET `remessage_Name`='{$name}',`remessage_Text`='{$text}' 
             WHERE `remessage_Id`= '{$id}'";
         mysql_query($sql);
-        echo Model::alert("修改回覆成功").Model::overPage("controller.php");
+        echo Model::alert("修改回覆成功").Model::overPage("/");
     }
 }

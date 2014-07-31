@@ -1,6 +1,6 @@
 {
 	"autoload": {
-        "classmap": ["controller/", "model/", "view/"]
+        "classmap": ["controller/", "model/"]
     },
     "require": {
         "twig/twig": "1.*",
