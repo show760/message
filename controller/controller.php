@@ -36,7 +36,10 @@ class Controller
         $name = $_POST['name'];
         $text = $_POST['text'];
         $mo = new Model;
-        $mo->modAddMessage($name, $text);
+        $message = $mo->modAddMessage($name, $text);
+        if ($message == 'true') {
+            echo Model::alert("新增留言成功").Model::overPage("/");
+        }
     }
     public function delMessageController()
     {
@@ -55,7 +58,10 @@ class Controller
     {
         $id = $_POST['id'];
         $mo = new Model;
-        $mo->modDelMessage($id);
+        $message = $mo->modDelMessage($id);
+        if ($message == 'true') {
+            echo Model::alert("刪除留言成功").Model::overPage("/message/del");
+        }
     }
     public function updMessageController()
     {
@@ -86,6 +92,9 @@ class Controller
         $name = $_POST['name'];
         $text = $_POST['text'];
         $mo = new Model;
-        $mo -> updMessage($id, $name, $text);
+        $message = $mo -> updMessage($id, $name, $text);
+        if ($message == 'true') {
+            echo Model::alert("修改留言成功").Model::overPage("/");
+        }
     }
 }

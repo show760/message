@@ -23,6 +23,7 @@ class Model
         alert("{$string}");
     </script>
 CONTENT;
+
         return $content;
     }
     public function overPage($goto)
@@ -40,14 +41,14 @@ CONTENT;
         $add = $this->db->prepare(
             "INSERT INTO `message`(`message_Name`,`message_Text`)VALUES ('{$name}','{$text}')"
         );
-        $add -> execute();
-        echo Model::alert("新增留言成功").Model::overPage("/");
+        $message = $add -> execute();
+        return $message;
     }
     public function modDelMessage($id)
     {
         $del = $this->db->prepare("DELETE FROM `message` WHERE `message_Id` = '{$id}'");
-        $del -> execute();
-        echo Model::alert("刪除留言成功").Model::overPage("/message/del");
+        $message = $del -> execute();
+        return $message;
     }
     public function getModUpdMessage($id)
     {
@@ -61,8 +62,8 @@ CONTENT;
         $update = $this->db->prepare(
             "UPDATE `message` SET `message_Name`='{$name}',`message_Text`='{$text}' WHERE `message_Id`= '{$id}'"
         );
-        $update -> execute();
-        echo Model::alert("修改留言成功").Model::overPage("/");
+        $message = $update -> execute();
+        return $message;
     }
     public function getAllReMessage()
     {
@@ -79,14 +80,14 @@ CONTENT;
             "INSERT INTO `remessage`(`message_Id`,`remessage_Name`,`remessage_Text`)
             VALUES ('{$id}','{$name}','{$text}')"
         );
-        $add -> execute();
-        echo Model::alert("新增回覆成功").Model::overPage("/");
+        $remessage = $add -> execute();
+        return $remessage;
     }
     public function modDelReMessage($id)
     {
         $del = $this->db->prepare("DELETE FROM `remessage` WHERE `remessage_Id` = '{$id}'");
-        $del -> execute();
-        echo Model::alert("刪除回覆成功").Model::overPage("/");
+        $remessage =$del -> execute();
+        return $remessage;
     }
     public function getUpdReMessage($id)
     {
@@ -100,8 +101,18 @@ CONTENT;
         $update = $this->db->prepare(
             "UPDATE `remessage` SET `remessage_Name`='{$name}',`remessage_Text`='{$text}' WHERE `remessage_Id`= '{$id}'"
         );
-        $update -> execute();
-        echo Model::alert("修改回覆成功").Model::overPage("/");
+        $remessage = $update -> execute();
+        return $remessage;
+    }
+    public function testModelConnect()
+    {
+        $this->db = null;
+        $this->db = new PDO(
+            "mysql:host=localhost;dbname=test",
+            'root',
+            '1234',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
+        );
     }
     public function __destruct()
     {
