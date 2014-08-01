@@ -13,14 +13,12 @@ class Controller
         $mo = new Model;
         $message = $mo->getAllMessage();
         $var = array ();
-        for ($i = 0; $i < $message[1]; $i++) {
-            $row = mysql_fetch_assoc($message[0]);
+        while ($row = $message->fetch()) {
             $var[]=$row;
         }
         $remessage = $mo->getAllReMessage();
         $var2 = array();
-        for ($i = 0; $i < $remessage[1]; $i++) {
-            $row = mysql_fetch_assoc($remessage[0]);
+        while ($row = $remessage->fetch()) {
             $var2[]=$row;
         }
         $show = array( 'message' => $var, 'remessage' => $var2);
@@ -47,8 +45,7 @@ class Controller
         $mo = new Model;
         $message = $mo->getAllMessage();
         $var = array ();
-        for ($i = 0; $i < $message[1]; $i++) {
-            $row = mysql_fetch_assoc($message[0]);
+        while ($row = $message->fetch()) {
             $var[]=$row;
         }
         $show =  array('message' => $var,'del' => 'id');
@@ -67,8 +64,7 @@ class Controller
         $mo = new Model;
         $message = $mo->getAllMessage();
         $var = array ();
-        for ($i = 0; $i < $message[1]; $i++) {
-            $row = mysql_fetch_assoc($message[0]);
+        while ($row = $message->fetch()) {
             $var[]=$row;
         }
         $show =  array( 'message' => $var, 'id' => 'id');

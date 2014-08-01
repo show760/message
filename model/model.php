@@ -1,15 +1,19 @@
 <?php
 namespace model;
 
+use PDO;
+
 class Model
 {
+    private $db;
     public function __construct()
     {
-        mysql_connect("localhost", "root", "1234")
-        or die("連結失敗");
-        mysql_select_db("james");
-        mysql_query("set names utf8");
-        //echo "資料庫連結完畢";
+        $this->db = new PDO(
+            "mysql:host=localhost;dbname=james",
+            'root',
+            '1234',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
+        );
     }
     public function alert($string)
     {
@@ -27,77 +31,80 @@ CONTENT;
     }
     public function getAllMessage()
     {
-        $sql="SELECT * FROM `message`";
-        $result=mysql_query($sql);
-        $total_records = mysql_num_rows($result);
-        $message = array($result, $total_records);
-        //var_dump($message);
+        $message = $this->db->query('SELECT * FROM `message`');
+        $message -> setFetchMode(PDO::FETCH_ASSOC);
         return $message;
-
     }
     public function modAddMessage($name, $text)
     {
-        $sql = "INSERT INTO `message`(`message_Name`,`message_Text`)
-            VALUES ('{$name}','{$text}')";
-        mysql_query($sql);
+        $add = $this->db->prepare(
+            "INSERT INTO `message`(`message_Name`,`message_Text`)VALUES ('{$name}','{$text}')"
+        );
+        $add -> execute();
         echo Model::alert("新增留言成功").Model::overPage("/");
     }
     public function modDelMessage($id)
     {
-        $sql = "DELETE FROM `message` WHERE `message_Id` = '{$id}'";
-        mysql_query($sql);
+        $del = $this->db->prepare("DELETE FROM `message` WHERE `message_Id` = '{$id}'");
+        $del -> execute();
         echo Model::alert("刪除留言成功").Model::overPage("/message/del");
     }
     public function getModUpdMessage($id)
     {
-        $sql = "SELECT * FROM `message` WHERE `message_Id` = '{$id}'";
-        $result = mysql_query($sql);
-        $message = mysql_fetch_assoc($result);
-        return $message;
+        $message = $this->db->query("SELECT * FROM `message` WHERE `message_Id` = '{$id}'");
+        $message -> setFetchMode(PDO::FETCH_ASSOC);
+        $modmessage = $message->fetch();
+        return $modmessage;
     }
     public function updMessage($id, $name, $text)
     {
-        $sql = "UPDATE `message` SET `message_Name`='{$name}',`message_Text`='{$text}' 
-            WHERE `message_Id`= '{$id}'";
-        mysql_query($sql);
+        $update = $this->db->prepare(
+            "UPDATE `message` SET `message_Name`='{$name}',`message_Text`='{$text}' WHERE `message_Id`= '{$id}'"
+        );
+        $update -> execute();
         echo Model::alert("修改留言成功").Model::overPage("/");
     }
     public function getAllReMessage()
     {
-        //$sql = "SELECT * FROM `remessage` order by `message_Id`";
-        $sql = "SELECT `remessage_Id`,`message_Id` AS M_ID ,`remessage_Time`,`remessage_Name`,`remessage_Text` 
-            FROM `remessage`";
-        $result = mysql_query($sql);
-        $total_records = mysql_num_rows($result);
-        $remessage = array($result, $total_records);
-        //var_dump($remessage);
+        $remessage = $this->db->query(
+            "SELECT `remessage_Id`,`message_Id` AS M_ID ,`remessage_Time`,`remessage_Name`,`remessage_Text` 
+            FROM `remessage`"
+        );
+        $remessage -> setFetchMode(PDO::FETCH_ASSOC);
         return $remessage;
     }
     public function modAddReMessage($id, $name, $text)
     {
-        $sql = "INSERT INTO `remessage`(`message_Id`,`remessage_Name`,`remessage_Text`)
-            VALUES ('{$id}','{$name}','{$text}')";
-        mysql_query($sql);
+        $add = $this->db->prepare(
+            "INSERT INTO `remessage`(`message_Id`,`remessage_Name`,`remessage_Text`)
+            VALUES ('{$id}','{$name}','{$text}')"
+        );
+        $add -> execute();
         echo Model::alert("新增回覆成功").Model::overPage("/");
     }
     public function modDelReMessage($id)
     {
-        $sql = "DELETE FROM `remessage` WHERE `remessage_Id` = '{$id}'";
-        mysql_query($sql);
+        $del = $this->db->prepare("DELETE FROM `remessage` WHERE `remessage_Id` = '{$id}'");
+        $del -> execute();
         echo Model::alert("刪除回覆成功").Model::overPage("/");
     }
     public function getUpdReMessage($id)
     {
-        $sql = "SELECT * FROM `remessage` WHERE `remessage_Id` = '{$id}'";
-        $result = mysql_query($sql);
-        $message = mysql_fetch_assoc($result);
-        return $message;
+        $message = $this->db->query("SELECT * FROM `remessage` WHERE `remessage_Id` = '{$id}'");
+        $message -> setFetchMode(PDO::FETCH_ASSOC);
+        $modmessage = $message->fetch();
+        return $modmessage;
     }
     public function updReMessage($id, $name, $text)
     {
-        $sql = "UPDATE `remessage` SET `remessage_Name`='{$name}',`remessage_Text`='{$text}' 
-            WHERE `remessage_Id`= '{$id}'";
-        mysql_query($sql);
+        $update = $this->db->prepare(
+            "UPDATE `remessage` SET `remessage_Name`='{$name}',`remessage_Text`='{$text}' WHERE `remessage_Id`= '{$id}'"
+        );
+        $update -> execute();
         echo Model::alert("修改回覆成功").Model::overPage("/");
+    }
+    public function __destruct()
+    {
+        $this->db = null;
     }
 }
