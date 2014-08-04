@@ -10,10 +10,10 @@
         <td>
             <table align='center' bgcolor="ffffff" >
                 <tr>
-                    <td align='left' width="500" >
-                        留言編號：{{ mess.message_Id }}	
+                    <td align='left' width='500'>
+                        留言編號：{{ mess.message_Id }}
                     </td>
-                    <td align='left' width="500">
+                    <td align='left' width='500'>
                         內容：{{ mess.message_Text }}
                     </td>
                 </tr>
@@ -30,10 +30,10 @@
 {% endfor %}
     <tr>
         <td align="center">
-            <table align='center' width="500" bgcolor="#ffffff" >
-                <form action="/message/dodel" method="POST" >
+            <table align='center' width='500' bgcolor='#ffffff' >
+                <form action='/message/dodel' method='POST' >
                 <tr>
-                    <td align="center">
+                    <td align='center'>
                         輸入欲刪除之留言編號：<input type='text' name='{{ del }}' >
                     </td>
                 </tr>

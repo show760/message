@@ -114,6 +114,25 @@ CONTENT;
             array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
         );
     }
+    public function testFindMessage($name, $test)
+    {
+        $message = $this->db->query(
+            "SELECT `message_Id` FROM `message` WHERE `message_Name`='{$name}' and `message_Text` ='{$test}'"
+        );
+        $message -> setFetchMode(PDO::FETCH_ASSOC);
+        $get = $message->fetch();
+        return $get;
+    }
+    public function testFindReMessage($name, $test)
+    {
+        $remessage = $this->db->query(
+            "SELECT `remessage_Id` FROM `remessage` WHERE `remessage_Name`='{$name}' 
+            and `remessage_Text` ='{$test}'"
+        );
+        $remessage -> setFetchMode(PDO::FETCH_ASSOC);
+        $get = $remessage->fetch();
+        return $get;
+    }
     public function __destruct()
     {
         $this->db = null;

@@ -10,7 +10,7 @@ class ReMessageController
         $loader = new \Twig_Loader_Filesystem('template');
         $twig = new \Twig_Environment($loader);
         $id = $_POST['id'];
-        $show = array('id' => 'id' ,'id_value' => $id, 'name' => 'name', 'text' => 'text');
+        $show = array('id' => 'id', 'id_value' => $id, 'name' => 'name', 'text' => 'text');
         echo $twig->render('remessagelist.html', $show);
     }
     public function addRemessageController()

@@ -6,10 +6,12 @@
          bootstrap="vendor/autoload.php"
          colors="true">
 
-<testsuites>
+
   <testsuite name="test">
    <file>test/src/Model/ModelTest.php</file>
   </testsuite>
-</testsuites>
-
+  <testsuite name="controller">
+    <file>test/src/Controller/ControllerTest.php</file>
+    <file>test/src/Controller/ReMessageControllerTest.php</file>
+  </testsuite>
 </phpunit>
