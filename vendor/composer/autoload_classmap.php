@@ -446,7 +446,7 @@ return array(
     'PHP_Token_XOR_EQUAL' => $vendorDir . '/phpunit/php-token-stream/PHP/Token.php',
     'PHP_Token_YIELD' => $vendorDir . '/phpunit/php-token-stream/PHP/Token.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/Text/Template.php',
-    'controller\\Controller' => $baseDir . '/controller/controller.php',
-    'controller\\ReMessageController' => $baseDir . '/controller/remesscontroller.php',
-    'model\\Model' => $baseDir . '/model/model.php',
+    'controller\\Controller' => $baseDir . '/src/controller/controller.php',
+    'controller\\ReMessageController' => $baseDir . '/src/controller/remesscontroller.php',
+    'model\\Model' => $baseDir . '/src/model/model.php',
 );
