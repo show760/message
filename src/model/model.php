@@ -10,7 +10,7 @@ class Model
     {
         $this->db = new PDO(
             "mysql:host=localhost;dbname=james",
-            'root',
+            'james',
             '1234',
             array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
         );
@@ -108,8 +108,8 @@ CONTENT;
     {
         $this->db = null;
         $this->db = new PDO(
-            "mysql:host=localhost;dbname=test",
-            'root',
+            "mysql:host=localhost;dbname=testmessage",
+            'testmessage',
             '1234',
             array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
         );
