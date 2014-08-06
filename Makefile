@@ -3,6 +3,9 @@
 composer.phar:
 	curl -sS https://getcomposer.org/installer | php
 
+sql:
+	php ./test/src/sql.php
+
 update: composer.phar
 	./composer.phar install
 

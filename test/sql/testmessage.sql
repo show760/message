@@ -25,8 +25,8 @@ SET time_zone = "+00:00";
 --
 -- 資料表結構 `message`
 --
-
-CREATE TABLE IF NOT EXISTS `message` (
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE `message` (
 `message_Id` int(11) NOT NULL,
   `message_Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `message_Name` varchar(10) NOT NULL,
@@ -46,8 +46,8 @@ INSERT INTO `message` (`message_Id`, `message_Time`, `message_Name`, `message_Te
 --
 -- 資料表結構 `remessage`
 --
-
-CREATE TABLE IF NOT EXISTS `remessage` (
+DROP TABLE IF EXISTS `remessage`;
+CREATE TABLE `remessage` (
 `remessage_Id` int(11) NOT NULL,
   `message_Id` int(11) NOT NULL,
   `remessage_Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
