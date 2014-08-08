@@ -8,7 +8,8 @@
 
 
   <testsuite name="test">
-   <file>test/src/Model/ModelTest.php</file>
+   <file>test/src/Model/MessageTest.php</file>
+   <file>test/src/Model/ReMessageTest.php</file>
   </testsuite>
   <testsuite name="controller">
     <file>test/src/Controller/ControllerTest.php</file>

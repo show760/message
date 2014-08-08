@@ -34,7 +34,7 @@
             </table>
             <table width="800" align="center" bgcolor="#ffffff">
     {% for remess in remessage %}
-        {% if remess.M_ID == mess.message_Id %}
+        {% if remess.message_Id == mess.message_Id %}
                     <tr>
                         <td align="left" width="400">
                             回覆姓名：{{remess.remessage_Name}}

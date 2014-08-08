@@ -1,7 +1,8 @@
 <?php
 namespace controller;
 
-use model\Model;
+use model\ReMessage;
+use controller\Controller;
 
 class ReMessageController
 {
@@ -13,24 +14,24 @@ class ReMessageController
         $show = array('id' => 'id', 'id_value' => $id, 'name' => 'name', 'text' => 'text');
         echo $twig->render('remessagelist.html', $show);
     }
-    public function addRemessageController()
+    public function addReMessageController()
     {
         $name = $_POST['name'];
         $text = $_POST['text'];
         $id = $_POST['id'];
-        $mo = new Model;
-        $remessage = $mo->modAddReMessage($id, $name, $text);
+        $mo = new ReMessage;
+        $remessage = $mo->addReMessage($id, $name, $text);
         if ($remessage == 'true') {
-            echo Model::alert("新增回覆成功").Model::overPage("/");
+            echo Controller::alert("新增回覆成功").Controller::overPage("/");
         }
     }
-    public function doDelRemessageController()
+    public function doDelReMessageController()
     {
         $id = $_POST['id'];
-        $mo = new Model;
-        $remessage = $mo->modDelReMessage($id);
+        $mo = new ReMessage;
+        $remessage = $mo->delReMessage($id);
         if ($remessage == 'true') {
-            echo Model::alert("刪除回覆成功").Model::overPage("/");
+            echo Controller::alert("刪除回覆成功").Controller::overPage("/");
         }
     }
     public function modReMessageListController()
@@ -38,9 +39,10 @@ class ReMessageController
         $loader = new \Twig_Loader_Filesystem('template');
         $twig = new \Twig_Environment($loader);
         $id = $_POST['id'];
-        $mo = new Model;
-        $message = $mo->getUpdReMessage($id);
-        $show = array( 'message' => $message, 'name' => 'name', 'text' => 'text','id' => 'id');
+        $mo = new ReMessage;
+        $message = $mo->giveModifyReMessage($id);
+        $remessage = $message->fetch();
+        $show = array( 'message' => $remessage, 'name' => 'name', 'text' => 'text','id' => 'id');
         echo $twig->render('updremessagelist.html', $show);
     }
     public function doUpdReMessageController()
@@ -48,10 +50,10 @@ class ReMessageController
         $id = $_POST['id'];
         $name = $_POST['name'];
         $text = $_POST['text'];
-        $mo = new Model;
-        $remessage = $mo -> updReMessage($id, $name, $text);
+        $mo = new ReMessage;
+        $remessage = $mo -> modifyReMessage($id, $name, $text);
         if ($remessage == 'true') {
-            echo Model::alert("修改回覆成功").Model::overPage("/");
+            echo Controller::alert("修改回覆成功").Controller::overPage("/");
         }
     }
 }

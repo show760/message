@@ -23,7 +23,7 @@ CREATE DATABASE IF NOT EXISTS `james` COLLATE utf8_general_ci;
 
 使用終端機匯入資料表
 ```
-$make sql
+$ make sql
 ```
 
 ### nginx server definition for example:

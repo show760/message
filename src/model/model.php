@@ -1,140 +1,93 @@
 <?php
 namespace model;
 
-use PDO;
+use \PDO;
+use model\Db;
 
-class Model
+class Model extends Db
 {
-    private $db;
-    public function __construct()
+    protected $table;
+    protected $columns;
+    protected $modify;
+    protected $id;
+    protected $lastid;
+    private function loadTable()
     {
-        $this->db = new PDO(
-            "mysql:host=localhost;dbname=james",
-            'james',
-            '1234',
-            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
-        );
+        return $this->table;
     }
-    public function alert($string)
+    private function loadColumns()
     {
-        $content=
-<<<CONTENT
-    <script language="JavaScript">
-        alert("{$string}");
-    </script>
-CONTENT;
-
-        return $content;
+        return $this->columns;
     }
-    public function overPage($goto)
+    private function loadId()
     {
-        return "<script>window.location.replace('{$goto}')</script>";
+        return $this->id;
     }
-    public function getAllMessage()
+    private function loadMod()
     {
-        $message = $this->db->query('SELECT * FROM `message`');
+        return $this->mod;
+    }
+    protected function getAll()
+    {
+        $this->initData();
+        $table = $this->loadTable();
+        $data = $this->db->query('SELECT * FROM ' .$table);
+        $data -> setFetchMode(PDO::FETCH_ASSOC);
+        return $data;
+    }
+    protected function add()
+    {
+        $this->initData();
+        $table = $this->loadTable();
+        $columns = $this->loadColumns();
+        $cols = implode('`, `', $columns);
+        $args = func_get_args();
+        $vals = implode("', '", $args);
+        $data = $this->db->prepare("INSERT INTO " .$table."( `".$cols."`) VALUES ( '".$vals."')");
+        $message = $data -> execute();
+        $this->lastid = $this->db->lastInsertId();
+        return $message;
+    }
+    protected function LastId()
+    {
+        return $this->lastid;
+    }
+    protected function del($did)
+    {
+        $this->initData();
+        $table = $this->loadTable();
+        $del = $this->loadId();
+        $data = $this->db->prepare("DELETE FROM " .$table." WHERE ".$del." = '".$did."'");
+        $message = $data -> execute();
+        return $message;
+    }
+    protected function giveModify($mid)
+    {
+        $this->initData();
+        $table = $this->loadTable();
+        $modify = $this->loadId();
+        $message = $this->db->query("SELECT * FROM ".$table." WHERE ".$modify." = '".$mid."'");
         $message -> setFetchMode(PDO::FETCH_ASSOC);
         return $message;
     }
-    public function modAddMessage($name, $text)
+    protected function modify()
     {
-        $add = $this->db->prepare(
-            "INSERT INTO `message`(`message_Name`,`message_Text`)VALUES ('{$name}','{$text}')"
+        $this->initData();
+        $table = $this->loadTable();
+        $mod = $this->loadMod();
+        $num = func_num_args();
+        $args = func_get_args();
+        $mid = $args[0];
+        $arr = array();
+        for ($i=0; $i < ($num-1) ; $i++) {
+            $arr[$i] = "`".$mod[$i]."` = '".$args[$i+1]."'";
+        }
+        $vals = implode(', ', $arr);
+        $modify = $this->loadId();
+        $data = $this->db->prepare(
+            "UPDATE ".$table." SET " .$vals. " WHERE " .$modify." = '".$mid."'"
         );
-        $message = $add -> execute();
+        $message = $data -> execute();
         return $message;
-    }
-    public function modDelMessage($id)
-    {
-        $del = $this->db->prepare("DELETE FROM `message` WHERE `message_Id` = '{$id}'");
-        $message = $del -> execute();
-        return $message;
-    }
-    public function getModUpdMessage($id)
-    {
-        $message = $this->db->query("SELECT * FROM `message` WHERE `message_Id` = '{$id}'");
-        $message -> setFetchMode(PDO::FETCH_ASSOC);
-        $modmessage = $message->fetch();
-        return $modmessage;
-    }
-    public function updMessage($id, $name, $text)
-    {
-        $update = $this->db->prepare(
-            "UPDATE `message` SET `message_Name`='{$name}',`message_Text`='{$text}' WHERE `message_Id`= '{$id}'"
-        );
-        $message = $update -> execute();
-        return $message;
-    }
-    public function getAllReMessage()
-    {
-        $remessage = $this->db->query(
-            "SELECT `remessage_Id`,`message_Id` AS M_ID ,`remessage_Time`,`remessage_Name`,`remessage_Text` 
-            FROM `remessage`"
-        );
-        $remessage -> setFetchMode(PDO::FETCH_ASSOC);
-        return $remessage;
-    }
-    public function modAddReMessage($id, $name, $text)
-    {
-        $add = $this->db->prepare(
-            "INSERT INTO `remessage`(`message_Id`,`remessage_Name`,`remessage_Text`)
-            VALUES ('{$id}','{$name}','{$text}')"
-        );
-        $remessage = $add -> execute();
-        return $remessage;
-    }
-    public function modDelReMessage($id)
-    {
-        $del = $this->db->prepare("DELETE FROM `remessage` WHERE `remessage_Id` = '{$id}'");
-        $remessage =$del -> execute();
-        return $remessage;
-    }
-    public function getUpdReMessage($id)
-    {
-        $message = $this->db->query("SELECT * FROM `remessage` WHERE `remessage_Id` = '{$id}'");
-        $message -> setFetchMode(PDO::FETCH_ASSOC);
-        $modmessage = $message->fetch();
-        return $modmessage;
-    }
-    public function updReMessage($id, $name, $text)
-    {
-        $update = $this->db->prepare(
-            "UPDATE `remessage` SET `remessage_Name`='{$name}',`remessage_Text`='{$text}' WHERE `remessage_Id`= '{$id}'"
-        );
-        $remessage = $update -> execute();
-        return $remessage;
-    }
-    public function testModelConnect()
-    {
-        $this->db = null;
-        $this->db = new PDO(
-            "mysql:host=localhost;dbname=testmessage",
-            'testmessage',
-            '1234',
-            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
-        );
-    }
-    public function testFindMessage($name, $test)
-    {
-        $message = $this->db->query(
-            "SELECT `message_Id` FROM `message` WHERE `message_Name`='{$name}' and `message_Text` ='{$test}'"
-        );
-        $message -> setFetchMode(PDO::FETCH_ASSOC);
-        $get = $message->fetch();
-        return $get;
-    }
-    public function testFindReMessage($name, $test)
-    {
-        $remessage = $this->db->query(
-            "SELECT `remessage_Id` FROM `remessage` WHERE `remessage_Name`='{$name}' 
-            and `remessage_Text` ='{$test}'"
-        );
-        $remessage -> setFetchMode(PDO::FETCH_ASSOC);
-        $get = $remessage->fetch();
-        return $get;
-    }
-    public function __destruct()
-    {
-        $this->db = null;
     }
 }
