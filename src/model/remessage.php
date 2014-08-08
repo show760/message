@@ -9,7 +9,7 @@ class ReMessage extends Model
     {
         $this->table = '`remessage`';
         $this->columns = array(
-        	   'message_Id',
+            'message_Id',
             'remessage_Name',
             'remessage_Text'
         );
@@ -41,6 +41,6 @@ class ReMessage extends Model
     }
     public function getLastId()
     {
-        return $this->LastId();
+        return $this->lastId();
     }
 }

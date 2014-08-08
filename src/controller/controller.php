@@ -13,7 +13,6 @@ class Controller
 CONTENT;
         return $content;
     }
-       
     public function overPage($goto)
     {
         return "<script>window.location.replace('{$goto}')</script>";

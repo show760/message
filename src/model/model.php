@@ -48,7 +48,7 @@ class Model extends Db
         $this->lastid = $this->db->lastInsertId();
         return $message;
     }
-    protected function LastId()
+    protected function lastId()
     {
         return $this->lastid;
     }
@@ -79,7 +79,7 @@ class Model extends Db
         $args = func_get_args();
         $mid = $args[0];
         $arr = array();
-        for ($i=0; $i < ($num-1) ; $i++) {
+        for ($i=0; $i < ($num-1); $i++) {
             $arr[$i] = "`".$mod[$i]."` = '".$args[$i+1]."'";
         }
         $vals = implode(', ', $arr);

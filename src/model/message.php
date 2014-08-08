@@ -44,6 +44,6 @@ class Message extends Model
     }
     public function getLastId()
     {
-        return $this->LastId();
+        return $this->lastId();
     }
 }
