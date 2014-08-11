@@ -10,7 +10,7 @@ $db = new PDO(
     array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
 );
 $db->exec(file_get_contents("test/sql/testmessage.sql"));
-echo 'Insert testmessage teble';
+echo 'Insert testmessage table';
 $db = null;
 
 $db = new PDO(
@@ -20,6 +20,5 @@ $db = new PDO(
     array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
 );
 $db->exec(file_get_contents("test/sql/james.sql"));
-echo ' and Update james teble success!';
+echo ' and Update james table success!';
 $db = null;
-

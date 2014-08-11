@@ -31,7 +31,7 @@ CREATE TABLE `message` (
   `message_Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `message_Name` varchar(10) NOT NULL,
   `message_Text` tinytext NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=149 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=146 ;
 
 --
 -- 資料表的匯出資料 `message`
@@ -53,7 +53,7 @@ CREATE TABLE `remessage` (
   `remessage_Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `remessage_Name` varchar(10) NOT NULL,
   `remessage_Text` tinytext NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- 資料表的匯出資料 `remessage`

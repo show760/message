@@ -15,6 +15,7 @@ pux: update
 check: pux
 	find src -name '*.php' -exec php -l {} \;
 	find src -name '*.php' -exec ./vendor/bin/phpcs --standard=PSR2 {} \;
+	find test -name '*.php' -exec ./vendor/bin/phpcs --standard=PSR2 {} \;
 	./vendor/phpunit/phpunit/phpunit.php -c phpunit.xml
 
 .PHONY: check update pux

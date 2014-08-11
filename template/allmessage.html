@@ -5,6 +5,13 @@
 </head>
 <body bgcolor="#333333">
 <table align='center' width="1000" bgcolor="#333333" >
+    <tr>
+        <td align="center">
+            <a href="/message/add" style="color:white;">新增留言</a>
+            <a href="/message/del" style="color:white;">刪除留言</a>
+            <a href="/message/mod" style="color:white;">修改留言</a>
+        </td>
+    </tr>
 {% for mess in message %} 
     <tr>
         <td>
@@ -74,13 +81,6 @@
         </td>
     </tr>
 {% endfor %}
-    <tr>
-        <td align="center">
-            <a href="/message/add" style="color:white;">新增留言</a>
-            <a href="/message/del" style="color:white;">刪除留言</a>
-            <a href="/message/mod" style="color:white;">修改留言</a>
-        </td>
-    </tr>
 </table>  
 </body>
 </html>
