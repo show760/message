@@ -42,4 +42,16 @@ server {
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root/index.php;
     }
+    location /pma/ {
+        alias /usr/share/phpmyadmin/;
+        index index.php;
+        location ~ \.php$ {
+   	    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    	    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    	    fastcgi_index index.php;
+    	    include fastcgi_params;
+        }
+    }
+        
 }
+```
